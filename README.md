@@ -36,3 +36,13 @@ O workflow em `.github/workflows/ci.yml` executa os testes automaticamente em pu
 
 ## Observações acadêmicas
 Este repositório é um MVP em evolução. Commits, Pull Requests, execuções de CI e validações com representantes devem ser realizados e registrados pelo estudante; não devem ser considerados concluídos apenas por constarem no planejamento. Use somente dados fictícios durante demonstrações.
+## Desenvolvimento
+
+Projeto em evolução na branch desenvolvimento.
+
+Nesta etapa serão realizados:
+- Implementação do MVP.
+- Testes automatizados.
+- Revisão de código.
+- Integração contínua (CI).
+
