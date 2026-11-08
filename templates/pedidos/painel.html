@@ -1,0 +1,9 @@
+{% extends 'base.html' %}{% block title %}Visão geral{% endblock %}{% block page_heading %}Visão geral{% endblock %}{% block page_subtitle %}Acesse as atividades principais e acompanhe os pedidos.{% endblock %}{% block content %}
+<section class="welcome"><h2>Olá! O que você deseja fazer?</h2><p>Escolha uma opção para continuar.</p></section>
+<div class="row g-4 action-grid">
+<div class="col-md-4"><a class="action-card" href="{% url 'lista_clientes' %}"><span class="action-icon blue">♙</span><h3>Cadastrar cliente</h3><span class="action-cta">Acessar →</span><p>Cadastre e consulte os clientes.</p></a></div>
+<div class="col-md-4"><a class="action-card" href="{% url 'novo_pedido' %}"><span class="action-icon teal">▤</span><h3>Registrar pedido</h3><span class="action-cta">Acessar →</span><p>Registre pedidos e seus prazos.</p></a></div>
+<div class="col-md-4"><a class="action-card" href="{% url 'lista_pedidos' %}"><span class="action-icon navy">☷</span><h3>Consultar pedidos</h3><span class="action-cta">Acessar →</span><p>Acompanhe as situações atuais.</p></a></div></div>
+<div class="info-panel"><h3>Acesso protegido</h3><p>Entre com sua conta para visualizar e atualizar informações de clientes e pedidos.</p></div>
+<section class="navigation-tip"><h3>Dica de navegação</h3><p>Use a tecla Tab para percorrer as opções. O foco do teclado deve permanecer visível.</p><p>Os botões possuem áreas amplas e rótulos textuais para facilitar a identificação.</p></section>
+{% endblock %}

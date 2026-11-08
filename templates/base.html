@@ -1,0 +1,16 @@
+{% load static %}
+<!doctype html>
+<html lang="pt-br"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{% block title %}Visão geral{% endblock %} | ORDEM</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><link href="{% static 'css/style.css' %}" rel="stylesheet"></head>
+<body>
+{% if user.is_authenticated %}
+<div class="app-shell">
+<aside class="sidebar"><a class="brand" href="{% url 'painel' %}">ORDEM<span>GESTÃO DE PEDIDOS</span></a><div class="side-rule"></div><nav aria-label="Menu principal">
+<a class="side-link {% if request.resolver_match.url_name == 'painel' %}active{% endif %}" href="{% url 'painel' %}"><span>⌂</span>Visão geral</a>
+<a class="side-link {% if request.resolver_match.url_name == 'lista_clientes' or request.resolver_match.url_name == 'novo_cliente' %}active{% endif %}" href="{% url 'lista_clientes' %}"><span>♙</span>Cadastrar cliente</a>
+<a class="side-link {% if request.resolver_match.url_name == 'novo_pedido' %}active{% endif %}" href="{% url 'novo_pedido' %}"><span>▤</span>Registrar pedido</a>
+<a class="side-link {% if request.resolver_match.url_name == 'lista_pedidos' or request.resolver_match.url_name == 'editar_pedido' %}active{% endif %}" href="{% url 'lista_pedidos' %}"><span>☷</span>Consultar pedidos</a>
+</nav><div class="sidebar-foot">Protótipo evoluído • dados reais cadastrados</div></aside>
+<div class="main-area"><header class="topbar"><div><h1>{% block page_heading %}Visão geral{% endblock %}</h1><p>{% block page_subtitle %}Acesse as atividades principais e acompanhe os pedidos.{% endblock %}</p></div><div class="user-pill"><span class="avatar">●</span>{{ user.username|default:'Administrador' }}</div></header>
+<main class="content-area">{% for message in messages %}<div class="alert alert-{{ message.tags|default:'info' }} alert-dismissible fade show" role="alert">{{ message }}<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button></div>{% endfor %}{% block content %}{% endblock %}</main></div></div>
+{% else %}<main class="login-wrap">{% for message in messages %}<div class="alert alert-{{ message.tags|default:'info' }}">{{ message }}</div>{% endfor %}{% block login_content %}{% endblock %}</main>{% endif %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script></body></html>
